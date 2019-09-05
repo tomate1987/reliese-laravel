@@ -1,58 +1,38 @@
 # Reliese Laravel
 
-[![StyleCI](https://styleci.io/repos/71080508/shield?style=flat)](https://styleci.io/repos/71080508)
-[![Build Status](https://travis-ci.org/reliese/laravel.svg?branch=master)](https://travis-ci.org/reliese/laravel)
-[![Latest Stable Version](https://poser.pugx.org/reliese/laravel/v/stable)](https://packagist.org/packages/reliese/laravel)
-[![Total Downloads](https://poser.pugx.org/reliese/laravel/downloads)](https://packagist.org/packages/reliese/laravel)
-[![Latest Unstable Version](https://poser.pugx.org/reliese/laravel/v/unstable)](https://packagist.org/packages/reliese/laravel)
-[![License](https://poser.pugx.org/reliese/laravel/license)](https://packagist.org/packages/reliese/laravel)
-
-Reliese Laravel is a collection of Laravel Components which aim is 
-to help the development process of Laravel applications by 
+Reliese Laravel is a collection of Laravel Components which aim is
+to help the development process of Laravel applications by
 providing some convenient code-generation capabilities.
 
-## How does it work?
+## Com instal·lar-ho a un projecte de l'IMAS
 
-This package expects that you are using Laravel 5.1 or above.
-You will need to import the `reliese/laravel` package via composer:
+Per poder instal·lar la versió de `reliese/laravel` de l'IMAS el que hem de fer és:
 
-```shell
-composer require reliese/laravel
+1. Obrir el fitxer `composer.json`.
+2. A l'array `require`, afegir la línia `"reliese/laravel": "dev-master"`
+
+   > Exemple:
+   >
+   > ```json
+   > "require": {
+   >       ...
+   >       "reliese/laravel": "dev-master",
+   >       ...
+   >   }
+   > ```
+
+3. Després, afegim després de l'array `require` el següent còdi:
+
+```json
+"repositories": [
+        {
+            "type": "git",
+            "url": "git@gitlab.imasmallorca.net:llibreries-php/reliese-laravel.git"
+        }
+    ]
 ```
 
-### Configuration
-
-Add the service provider to your `config/app.php` file within the `providers` key:
-
-```php
-// ...
-'providers' => [
-    /*
-     * Package Service Providers...
-     */
-
-    Reliese\Coders\CodersServiceProvider::class,
-],
-// ...
-```
-### Configuration for local environment only
-
-If you wish to enable generators only for your local environment, you should install it via composer using the --dev option like this:
-
-```shell
-composer require reliese/laravel --dev
-```
-
-Then you'll need to register the provider in `app/Providers/AppServiceProvider.php` file.
-
-```php
-public function register()
-{
-    if ($this->app->environment() == 'local') {
-        $this->app->register(\Reliese\Coders\CodersServiceProvider::class);
-    }
-}
-```
+> NOTA: Convé que es tengui configurada la clau SSH al vostre perfil de GitLab, així no vos demanarà contrasenya per clonar el projecte.
 
 ## Models
 
@@ -109,9 +89,9 @@ When you enable this feature your models will inherit their base configurations 
 base models. You should avoid adding code to your base models, since you
 will lose all changes when they are generated again.
 
-> Note: You will end up with two models for the same table and you may think it is a horrible idea 
-to have two classes for the same thing. However, it is up to you
-to decide whether this approach gives value to your project :-)
+> Note: You will end up with two models for the same table and you may think it is a horrible idea
+> to have two classes for the same thing. However, it is up to you
+> to decide whether this approach gives value to your project :-)
 
 #### Support
 

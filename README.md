@@ -4,36 +4,6 @@ Reliese Laravel is a collection of Laravel Components which aim is
 to help the development process of Laravel applications by
 providing some convenient code-generation capabilities.
 
-## Com instal·lar-ho a un projecte de l'IMAS
-
-Per poder instal·lar la versió de `reliese/laravel` de l'IMAS el que hem de fer és:
-
-1. Obrir el fitxer `composer.json`.
-2. A l'array `require`, afegir la línia `"reliese/laravel": "dev-master"`
-
-   > Exemple:
-   >
-   > ```json
-   > "require": {
-   >       ...
-   >       "reliese/laravel": "dev-master",
-   >       ...
-   >   }
-   > ```
-
-3. Després, afegim després de l'array `require` el següent còdi:
-
-```json
-"repositories": [
-        {
-            "type": "git",
-            "url": "git@gitlab.imasmallorca.net:llibreries-php/reliese-laravel.git"
-        }
-    ]
-```
-
-> NOTA: Convé que es tengui configurada la clau SSH al vostre perfil de GitLab, així no vos demanarà contrasenya per clonar el projecte.
-
 ## Models
 
 ![Generating models with artisan](https://cdn-images-1.medium.com/max/800/1*hOa2QxORE2zyO_-ZqJ40sA.png "Making artisan code my Eloquent models")
